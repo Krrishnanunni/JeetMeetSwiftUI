@@ -40,7 +40,7 @@ struct StdDashBoardView: View {
                                         dashBoardCard
                                         Spacer()
                                         Spacer()
-                                        noticeCard
+                                        noticeCardZ
                                         Spacer()
                                     }
                                     
@@ -177,6 +177,47 @@ struct StdDashBoardView: View {
                     
                 }.frame(height: 350)
             }
+    }
+    var noticeCardZ: some View {
+        ZStack(alignment: .topLeading){
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundStyle(.white)
+                .frame(width: width - 30, height: 400)
+            
+            VStack(spacing: 0.0){
+                HStack(alignment: .center){
+                    Image(systemName: "bell.fill")
+                        .foregroundStyle(.yellow)
+                        
+                    Text("Notice")
+                        .foregroundStyle(Color(UIKit.UIColor.systemGray))
+                        .fontWeight(.medium)
+                        
+                    Spacer()
+                }
+                .padding()
+                
+                
+                ScrollView(.vertical) {
+                    VStack(alignment: .leading){
+                        
+                        ForEach(noticeTitles, id: \.self){ notice in
+                            Divider()
+                            Text("NOTICE")
+                            Text(notice)
+                                .foregroundStyle(.black.opacity(0.75))
+                                .font(.caption)
+                            
+                        }
+                    }.frame(height: 350)
+                    .padding(.leading, 10)
+                }
+                
+                Spacer()
+            }
+            .frame(width: width - 40)
+        }
+        .frame(width: width - 30, height: 400)
     }
     // Array of Notice Titles
     let noticeTitles: [String] = [
