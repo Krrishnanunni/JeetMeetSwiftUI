@@ -43,7 +43,7 @@ struct LoginPage: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding([.leading,.trailing])
             }
-            Text("Forgot Password?")
+            Text("Forgot Password ?")
                 .foregroundStyle(.primary.opacity(0.8))
             Button {
                 //Action
